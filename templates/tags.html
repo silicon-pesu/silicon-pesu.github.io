@@ -3,76 +3,49 @@
 {% block content %}
 <div class="max-w-3xl mx-auto mt-16 px-4 mb-24">
     
-    <!-- Title -->
-    <h1 class="text-4xl font-bold text-white mb-16 border-b border-[#1a1a1a] pb-8">
-        Items tagged with <span class="text-[#00ff00]">#{{ tag_name }}</span>
-    </h1>
+    <!-- The "Goldilocks" size: using an exact pixel value so you have total control -->
+    <h2 class="text-[40px] font-semibold text-gray-200 mb-2">
+        Posts tagged with: <span class="text-[#00ff00] font-bold">#{{ tag_name }}</span>
+    </h2>
+    
+    <!-- Subtle divider -->
+    <div class="divider before:bg-[#222] after:bg-[#222] my-6"></div>
 
-    <div class="flex flex-col">
-        <!-- Loop through tagged items (Both Blogs and Projects!) -->
-        {% for post in posts %}
-        <article class="flex flex-col {% if not loop.last %}border-b border-[#00ff00]/30 pb-10 mb-10{% endif %}">
-            
-            <!-- Tags on top (Pulls from project/blog frontmatter) -->
-            {% if post.tags %}
-            <div class="flex flex-wrap gap-3 font-mono text-sm text-gray-500 mb-3 lowercase">
-                {% for tag in post.tags %}
-                <span>#{{ tag }}</span>
-                {% endfor %}
-            </div>
-            {% endif %}
-            
-            <!-- Underlined Title -->
-            <a href="{{ post.url }}/" class="block mb-3 group w-fit">
-                <h2 class="text-3xl font-bold text-white group-hover:text-[#00ff00] transition-colors underline decoration-[#1a1a1a] group-hover:decoration-[#00ff00] underline-offset-8">
-                    {{ post.title }}
+    <div class="space-y-6 mt-8">
+    {% for post in posts %}
+        <!-- Compact Card Layout -->
+        <div class="card bg-[#0a0a0a] border border-[#1a1a1a] shadow-xl hover:border-[#00ff00]/40 transition-colors">
+            <div class="card-body p-6">
+                
+                <!-- Title -->
+                <h2 class="card-title text-xl m-0">
+                    <a href="{{ post.url }}/" class="text-white hover:text-[#00ff00] transition-colors">
+                        {{ post.title }}
+                    </a>
                 </h2>
-            </a>
-            
-            <!-- Universal Meta Info (Handles Authors & Date if they exist) -->
-            <div class="flex flex-wrap items-center gap-2 font-mono text-base text-gray-400 mb-6 mt-2">
-                {% if post.authors %}
-                {% for author in post.authors %}
-                    {% if author.url %}
-                        <a href="{{ author.url }}" class="text-[#00ff00] hover:text-white underline hover:no-underline transition-colors">
-                            {{ author.name }}
-                        </a>
-                    {% else %}
-                        <span class="text-[#00ff00]">{{ author.name | default(author) }}</span>
+                
+                <!-- Universal Meta Info (Authors & Date) -->
+                <p class="font-mono text-sm text-gray-400 mt-2 m-0">
+                    {% if post.authors %}
+                        {% for author in post.authors %}
+                            <span class="text-[#00ff00]">{{ author.name | default(author) }}</span>{% if not loop.last %}<span class="text-gray-600">,</span> {% endif %}
+                        {% endfor %}
+                        
+                        {% if post.date %}<span class="mx-2">|</span>{% endif %}
                     {% endif %}
-                    {% if not loop.last %}<span class="text-gray-600">,</span> {% endif %}
-                {% endfor %}
-                {% endif %}
-                
-                <!-- Add a separator if both authors AND date exist -->
-                {% if post.authors and post.date %}
-                <span class="text-gray-600 mx-2">|</span>
-                {% endif %}
-                
-                {% if post.date %}
-                <span>{{ post.date }}</span>
-                {% endif %}
+                    
+                    {% if post.date %}
+                        {{ post.date }}
+                    {% endif %}
+                </p>
+
             </div>
-            
-            <!-- Excerpt -->
-            <p class="text-gray-300 leading-relaxed mb-6">
-                {{ post.description | default(post.excerpt) | default(post.content | striptags | truncate(200)) }}
-            </p>
-            
-            <!-- Link -->
-            <a href="{{ post.url }}/" class="font-mono text-sm text-[#00ff00] underline hover:no-underline transition-colors w-fit">
-                View Details
-            </a>
-            
-        </article>
-        {% else %}
-        <!-- Fallback if empty -->
-        <p class="text-gray-400 font-mono italic">No items found for this tag.</p>
-        {% endfor %}
+        </div>
+    {% endfor %}
     </div>
 
     <!-- Back Button -->
-    <div class="mt-16">
+    <div class="mt-10">
         <a href="/" class="font-mono text-sm text-[#00ff00] underline hover:no-underline transition-colors">
             ← Back to Home
         </a>
