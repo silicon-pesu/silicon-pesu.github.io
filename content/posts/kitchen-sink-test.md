@@ -13,7 +13,7 @@ tags:
     - "dogs"
 ---
 
-**Note: This page is specifically a test to verify that the `projects` template is rendering correctly. It contains absolutely no science, no hardware, and no technical data. It is purely for testing formatting.**
+**Note: This page is specifically a test to verify that the `posts` template is rendering correctly. It contains absolutely no science, no hardware, and no technical data. It is purely for testing formatting.**
 
 ## 1. The Very Important Question
 
