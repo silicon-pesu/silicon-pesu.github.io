@@ -977,9 +977,8 @@ def main():
                 if layout:
                     collections[layout].append(page_data)
                     
-                    if layout == "post":
-                        for tag in page_data.get("tags") or []:
-                             tags.setdefault(tag, []).append(page_data)
+                    for tag in page_data.get("tags") or []:
+                        tags.setdefault(tag, []).append(page_data)
 
         removed = previous_slugs - current_slugs
         for slug in removed:
