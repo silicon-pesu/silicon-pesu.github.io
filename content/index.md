@@ -1,7 +1,7 @@
 ---
 title: "Silicon Club"
 layout: "main"
-hero_image: "assets/images/Silicon-logo.png"
+hero_image: "https://images.kvlp.in/silicon/silicon_club_logo.png"
 ---
 
 Since 2021, we have been pushing boundaries of hardware-software co-design. Our club is united by shared interest for embedded, VLSI and analog.
