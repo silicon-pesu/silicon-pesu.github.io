@@ -9,7 +9,11 @@
         <!-- Avatar/Image Support -->
         {% if page.image %}
         <div class="w-32 h-32 mb-6 rounded-full overflow-hidden border-4 border-[#1a1a1a] shadow-[0_0_30px_rgba(0,255,0,0.1)]">
-            <img src="/{{ page.image }}" alt="{{ page.title }}" class="w-full h-full object-cover" />
+            {% if page.image.startswith('http') %}
+                <img src="{{ page.image }}" alt="{{ page.title }}" class="w-full h-full object-cover" />
+            {% else %}
+                <img src="/{{ page.image }}" alt="{{ page.title }}" class="w-full h-full object-cover" />
+            {% endif %}
         </div>
         {% else %}
         <div class="w-32 h-32 mb-6 rounded-full bg-[#111] border-4 border-[#1a1a1a] flex items-center justify-center text-5xl font-bold uppercase font-mono text-[#00ff00]">
