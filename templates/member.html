@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto text-center mt-16">
+    <h1 class="text-5xl font-bold font-heading text-white mb-4">{{ page.title }}</h1>
+    <h2 class="text-xl text-[#00ff00] font-mono mb-8">{{ page.role }}</h2>
+    
+    <div class="divider before:bg-gray-800 after:bg-gray-800"></div>
+    
+    <article class="prose prose-invert mx-auto text-left mt-8">
+        {{ content | safe }}
+    </article>
+    
+    <div class="mt-12 text-left">
+        <a href="/members/" class="text-sm font-mono text-gray-500 hover:text-[#00ff00] transition-colors">&larr; Return to Core Team</a>
+    </div>
+</div>
+{% endblock %}

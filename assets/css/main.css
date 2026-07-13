@@ -1,0 +1,4 @@
+@import "./generated.fonts.css";
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "./generated.daisyui.css";

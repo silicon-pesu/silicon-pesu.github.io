@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Deep black background with ambient neon green glowing blobs -->
+<div class="fixed inset-0 z-[-1] bg-[#050505]">
+<div class="absolute top-[20%] left-[50%] -translate-x-1/2 w-[600px] h-[300px] bg-[#00ff00] rounded-full mix-blend-screen filter blur-[120px] opacity-[0.03]"></div>
+</div>
+
+<div class="max-w-3xl mx-auto flex flex-col items-center text-center mt-8 font-mono relative z-10">
+  
+  <!-- Header -->
+  <h1 class="text-5xl font-extrabold mb-6 tracking-widest text-white uppercase">{{ page.title }}</h1>
+  
+  <p class="text-lg text-gray-400 mb-12">
+    We are a hardware-centric club, building at the silicon level from <span class="text-[#00ff12]"> PES University, Electronic City Campus.</span><br>
+  </p>
+
+  <!-- Centered Logo with a strong green drop shadow -->
+  {% if page.hero_image %}
+  <div class="w-64 h-64 mb-16 flex justify-center items-center">
+    <img src="/{{ page.hero_image }}" alt="Silicon Club Logo" class="max-w-full h-auto drop-shadow-[0_0_30px_rgba(0,255,0,0.4)]" />
+  </div>
+  {% endif %}
+
+  <!-- The "Yap" Content from Markdown -->
+  <article class="prose prose-invert prose-p:text-gray-300 prose-a:text-[#00ff00] prose-a:no-underline hover:prose-a:underline prose-strong:text-white max-w-none text-left w-full leading-relaxed">
+    {{ content | safe }}
+  </article>
+
+  <!-- Quick Nav Links at the bottom (Added backdrop blur to float over the glows) -->
+  <div class="flex flex-col sm:flex-row gap-6 w-full mt-16">
+    
+    <a href="/blog/" class="flex-1 block p-6 border border-[#00ff00] rounded-lg hover:bg-[#00ff00] hover:text-black transition-colors text-left group bg-black/40 backdrop-blur-md">
+      <h2 class="text-xl font-bold mb-2 group-hover:text-black text-[#00ff00]">Technical Blogs &rarr;</h2>
+      <p class="text-sm opacity-80 group-hover:text-black">Explore our latest thoughts, findings, and deep-dives.</p>
+    </a>
+    
+    <a href="/projects/" class="flex-1 block p-6 border border-[#00ff00] rounded-lg hover:bg-[#00ff00] hover:text-black transition-colors text-left group bg-black/40 backdrop-blur-md">
+      <h2 class="text-xl font-bold mb-2 group-hover:text-black text-[#00ff00]">Active Builds &rarr;</h2>
+      <p class="text-sm opacity-80 group-hover:text-black">View our hardware builds and projects.</p>
+    </a>
+    
+  </div>
+
+</div>
+{% endblock %}
