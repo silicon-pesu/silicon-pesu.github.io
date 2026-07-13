@@ -12,6 +12,8 @@ tags:
     - "hardware"
 ---
 
+THIS IS JUST A TEST BLOG
+
 When testing a new typography layout, it helps to throw a wide variety of formatting elements at it to ensure everything renders cleanly. This post serves as a complete canvas for testing our static site generator.
 
 ## 1. The Magic of Semiconductors
