@@ -1,18 +1,51 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-2xl mx-auto text-center mt-16">
-    <h1 class="text-5xl font-bold font-heading text-white mb-4">{{ page.title }}</h1>
-    <h2 class="text-xl text-[#00ff00] font-mono mb-8">{{ page.role }}</h2>
+<div class="max-w-3xl mx-auto mt-16 px-4 mb-24">
     
-    <div class="divider before:bg-gray-800 after:bg-gray-800"></div>
+    <!-- Profile Header -->
+    <div class="flex flex-col items-center text-center mb-12">
+        
+        <!-- Avatar/Image Support -->
+        {% if page.image %}
+        <div class="w-32 h-32 mb-6 rounded-full overflow-hidden border-4 border-[#1a1a1a] shadow-[0_0_30px_rgba(0,255,0,0.1)]">
+            <img src="/{{ page.image }}" alt="{{ page.title }}" class="w-full h-full object-cover" />
+        </div>
+        {% else %}
+        <div class="w-32 h-32 mb-6 rounded-full bg-[#111] border-4 border-[#1a1a1a] flex items-center justify-center text-5xl font-bold uppercase font-mono text-[#00ff00]">
+            {{ page.title[:1] }}
+        </div>
+        {% endif %}
+        
+        <h1 class="text-5xl font-bold font-heading text-white mb-4">{{ page.title }}</h1>
+        <h2 class="text-xl text-[#00ff00] font-mono mb-8">{{ page.role }}</h2>
+        
+        <!-- Dynamic Social / Personal Links -->
+        <div class="flex flex-wrap justify-center gap-4 font-mono text-sm">
+            {% if page.website %}
+            <a href="{{ page.website }}" target="_blank" class="px-4 py-2 border border-[#333] rounded-md text-gray-300 hover:text-black hover:bg-[#00ff00] hover:border-[#00ff00] transition-all">Website</a>
+            {% endif %}
+            {% if page.github %}
+            <a href="{{ page.github }}" target="_blank" class="px-4 py-2 border border-[#333] rounded-md text-gray-300 hover:text-black hover:bg-[#00ff00] hover:border-[#00ff00] transition-all">GitHub</a>
+            {% endif %}
+            {% if page.linkedin %}
+            <a href="{{ page.linkedin }}" target="_blank" class="px-4 py-2 border border-[#333] rounded-md text-gray-300 hover:text-black hover:bg-[#00ff00] hover:border-[#00ff00] transition-all">LinkedIn</a>
+            {% endif %}
+            {% if page.email %}
+            <a href="mailto:{{ page.email }}" class="px-4 py-2 border border-[#333] rounded-md text-gray-300 hover:text-black hover:bg-[#00ff00] hover:border-[#00ff00] transition-all">Email</a>
+            {% endif %}
+        </div>
+    </div>
     
-    <article class="prose prose-invert mx-auto text-left mt-8">
+    <div class="divider before:bg-gray-800 after:bg-gray-800 mb-12"></div>
+    
+    <!-- Markdown Body -->
+    <article class="prose prose-invert max-w-none prose-a:text-[#00ff00] prose-a:no-underline hover:prose-a:underline prose-headings:text-white prose-img:rounded-xl mx-auto text-left mt-8">
         {{ content | safe }}
     </article>
     
-    <div class="mt-12 text-left">
-        <a href="/members/" class="text-sm font-mono text-gray-500 hover:text-[#00ff00] transition-colors">&larr; Return to Core Team</a>
+    <div class="mt-16 pt-8 border-t border-[#1a1a1a] text-left">
+        <a href="/members/" class="font-mono text-sm text-[#00ff00] underline hover:no-underline transition-colors">&larr; Return to Core Team</a>
     </div>
 </div>
 {% endblock %}
