@@ -1,5 +1,5 @@
 ---
-title: "Project Layout Test: The Great Squirrel Expedition"
+title: "Blog Layout Test: The Great Squirrel Expedition"
 date: "2026-07-11"
 description: "A completely random test page to see how the website handles non-technical content, cute animals, and general silliness."
 layout: "post"
