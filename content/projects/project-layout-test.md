@@ -1,63 +1,53 @@
 ---
-title: "Project Layout Test: Simulacra GPU"
+title: "Project Layout Test: The Great Squirrel Expedition"
 date: "2026-07-11"
-description: "This is a dedicated test page to verify the project layout rendering, featuring Bluespec code, pipeline mathematics, and image formatting."
+description: "A completely random test page to see how the website handles non-technical content, cute animals, and general silliness."
 layout: "project-post"
 authors:
     - name: "Keval Pattani"
       url: "/members/keval/"
 tags:
-    - "gpu"
-    - "bluespec"
     - "test"
+    - "random"
+    - "squirrels"
+    - "dogs"
 ---
 
-**Note: This page is specifically a test to verify that the `projects` template is rendering correctly with the new Tailwind typography settings.**
+**Note: This page is specifically a test to verify that the `projects` template is rendering correctly. It contains absolutely no science, no hardware, and no technical data. It is purely for testing formatting.**
 
-## 1. Project Overview
+## 1. The Very Important Question
 
-When architecting a custom GPU like Simulacra, validating the rendering pipeline at the RTL level is critical before generating the final bitstream. This page ensures that all documentation formatting works flawlessly.
+Have you ever wondered what squirrels talk about when they are running across power lines? This is a test of our layout engine. We are testing how the website displays standard paragraph text, which is what you are reading right now. This is just a test.
 
-> "A layout test is only as good as the random hardware components and synthesis flows it references."
-
----
-
-## 2. Pipeline Mathematics (LaTeX)
-
-If we need to document the memory bandwidth required for the frame buffer, we can test an inline equation like $B = f \times r \times c$ or a full display equation to test the math renderer:
-
-$$ \text{Bandwidth} = \text{Resolution}_x \times \text{Resolution}_y \times \text{Refresh Rate} \times \text{Color Depth} $$
+> "A squirrel’s primary goal in life is to find the perfect acorn, much like our primary goal here is to make sure this website layout looks perfect."
 
 ---
 
-## 3. Architecture Diagrams
+## 2. Absolutely No Mathematics
 
-Let's test the image rounding and caption styling for project documentation:
+We are testing how the website handles non-technical text. There are no equations here, because this is a test. 
 
-![Simulacra Architecture](/assets/images/Silicon-logo.png)
-> High-level block diagram of the rasterizer pipeline.
+$$\text{Total Happiness} = \text{Acorns} + \text{Sunlight} - \text{Sneaky Cats}$$
 
-## 4. Bluespec Implementation Test
+*Wait, I said no math, but I had to test the math renderer one last time! Please ignore this; it is just a test.*
 
-Finally, let's make sure the code blocks and the interactive "Copy" button work perfectly for hardware description languages like Bluespec SystemVerilog (BSV):
+---
 
-```bsv
-package SimulacraTest;
+## 3. Our New Mascot
 
-interface GPU_Pipeline_Ifc;
-    method Action put_vertex(Vertex v);
-    method ActionValue#(Pixel) get_pixel();
-endinterface
+We have officially decided that the mascot of this website is now a very confused dog. This is a test of our image rendering capabilities.
 
-// Dummy test module for the project layout
-(* synthesize *)
-module mkPipeline(GPU_Pipeline_Ifc);
-    
-    rule process_vertex;
-        // Rasterization logic goes here
-    endrule
+![A very confused dog friend](https://images.kvlp.in/silicon/dog_512.jpg)
+> This is a test image of a dog. It is not a GPU block diagram. It is just a dog.
 
-endmodule
+## 4. Final Text Formatting Test
 
-endpackage
+Finally, let's make sure the text blocks work perfectly for non-technical stories. Imagine a world where squirrels run the internet. They would probably use a lot of tree-based encryption. This is just a test of the "Copy" button below:
+
+```text
+TEST LOG: 
+Status: Very Random
+Content: Squirrels and Dogs
+Purpose: Layout Verification
+Result: Formatting looks great!
 ```
