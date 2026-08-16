@@ -13,3 +13,7 @@
 .venv
 dist
 .venv/*
+
+/content/posts/kitchen-sink-test.md
+/content/projects/project-layout-test.md
+
